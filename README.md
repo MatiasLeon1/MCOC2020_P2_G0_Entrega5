@@ -170,7 +170,7 @@ Gracias a esto se pudo observar que los triángulos del reticulado de ambos bord
 De la misma forma que en la base del reticulado, se observó que las barras que estaban pensadas como “cables” no estaban siendo de utilidad para sostener el vano del puente, sobre todo al evaluarse la carga viva. Para solucionar esto se decidió abordar la utilidad de los cables y reemplazarlos por barras más concisas. Esto aumentó el peso del puente en comparación con las ideas originales, pero sirvió para cumplir con las condiciones de carga existentes. Observando las barras que no cumplian los requisitos, se observó que los cables diagonales y centrales podían dimensionarse de manera distinta entre sí. 
 De acuerdo a lo anterior se rediseñaron los cables y se les asignó un radio de `R= 18 [cm]` y espesor `t= 18 [mm]`para los cables diagonales, y un radio de `R= 20 [cm]` y espesor `t= 20 [mm]`para los cables centrales.
 
-Finalmente estos cambios lograron que el diseño del puente cumpliera con los requisitos, logrando un diseño optimizado. Los resultados se muestran a continuación.
+Finalmente estos cambios lograron que el diseño del puente cumpliera con los requisitos, logrando un diseño util. Los resultados se muestran a continuación.
 
 ### Caso 8
 
@@ -203,5 +203,9 @@ Se adjuntan los valores de FU que cumplen en su totalidad la exigencia de valor 
 *
 ![Gráfica_8_FU_valores_caso_1 2D+1 6L](https://user-images.githubusercontent.com/43649125/96654027-b874d100-1310-11eb-9724-25009eeef09e.PNG)
 
+Optimizando a mano, se itero con respecto a los radios y espesores de las barras, logrando un peso final de:
+
+*
+![WhatsApp Image 2020-10-20 at 23 42 36](https://user-images.githubusercontent.com/43649125/96666656-fb916d00-132d-11eb-8d50-85003cecbb18.jpeg)
 
 
