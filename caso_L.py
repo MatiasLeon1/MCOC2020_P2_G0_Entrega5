@@ -11,7 +11,7 @@ from numpy import *
 from math import *
 
  
-def caso_D():
+def caso_L():
     # Unidades base
     m = 1.
     kg = 1.
@@ -29,16 +29,17 @@ def caso_D():
     MPa = 1000*KPa
     GPa = 1000*MPa
     
-    # #Parametros
+    #Parametros
     # L = 5.0  *m
     # F = 100*KN
     # B = 2.0 *m
-    # #Parametros cargas vivas
-    # Q=400*(kg/(m**2))
-    # g=9.8*(m/(s**2))
-    # A0=7.5*(m**2)
-    # A1=15*(m**2)
-    
+    #Parametros cargas vivas
+    Q=400*(kg/(m**2))
+    g=9.8*(m/(s**2))
+    A0=3*(m**2)
+    A1=6*(m**2)
+    A2=5.75*(m**2)
+    A3=5.5*(m**2)
     #Inicializar modelo
     
     ret = Reticulado()
@@ -47,6 +48,7 @@ def caso_D():
     altura2=sqrt(25-(2.5**2))
     altura2=20.
     altura_pilares=20.
+
     
     """
     Nodos calle
