@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 20 23:50:10 2020
+Created on Tue Oct 20 23:35:55 2020
 
-@author: jpsil
+@author: 56977
 """
-
 
 from reticulado import Reticulado
 from barra import Barra
@@ -12,7 +11,7 @@ from numpy import *
 from math import *
 
  
-def caso_L():
+def caso_D():
     # Unidades base
     m = 1.
     kg = 1.
@@ -30,17 +29,16 @@ def caso_L():
     MPa = 1000*KPa
     GPa = 1000*MPa
     
-    #Parametros
+    # #Parametros
     # L = 5.0  *m
     # F = 100*KN
     # B = 2.0 *m
-    #Parametros cargas vivas
-    Q=400*(kg/(m**2))
-    g=9.8*(m/(s**2))
-    A0=3*(m**2)
-    A1=6*(m**2)
-    A2=5.75*(m**2)
-    A3=5.5*(m**2)
+    # #Parametros cargas vivas
+    # Q=400*(kg/(m**2))
+    # g=9.8*(m/(s**2))
+    # A0=7.5*(m**2)
+    # A1=15*(m**2)
+    
     #Inicializar modelo
     
     ret = Reticulado()
@@ -79,14 +77,13 @@ def caso_L():
     Nodos 
     """
 
-
-    ret.agregar_nodo(22.0,1,107.5025) #74
+    ret.agregar_nodo(22.0,1,107.5025)
     ret.agregar_nodo(34.0,0,106.6626)
     ret.agregar_nodo(34.0,1,113.8474)
     ret.agregar_nodo(46.0,0,112.2212)
     ret.agregar_nodo(46.0,1,119.1587)
     ret.agregar_nodo(58.0,0,116.7813)
-    ret.agregar_nodo(58.0,1,123.5269) #80
+    ret.agregar_nodo(58.0,1,123.5269)
     ret.agregar_nodo(70.0,0,120.4193)
     ret.agregar_nodo(70.0,1,127.0186)
     ret.agregar_nodo(82.0,0,123.1911)
@@ -96,7 +93,7 @@ def caso_L():
     ret.agregar_nodo(106.0,0,126.2798)
     ret.agregar_nodo(106.0,1,132.6546)
     ret.agregar_nodo(117.5,0,126.6385)
-    ret.agregar_nodo(117.5,1,133.0) #90
+    ret.agregar_nodo(117.5,1,133.0)
     ret.agregar_nodo(129.0,0,126.2798)
     ret.agregar_nodo(129.0,1,132.6546)
     ret.agregar_nodo(141.0,0,125.1358)
@@ -106,18 +103,19 @@ def caso_L():
     ret.agregar_nodo(165.0,0,120.4193)
     ret.agregar_nodo(165.0,1,127.0186)
     ret.agregar_nodo(177.0,0,116.7813)
-    ret.agregar_nodo(177.0,1,123.5269) #100
+    ret.agregar_nodo(177.0,1,123.5269)
     ret.agregar_nodo(189.0,0,112.2212)
     ret.agregar_nodo(189.0,1,119.1587)
     ret.agregar_nodo(201.0,0,106.6626)
     ret.agregar_nodo(201.0,1,113.8474)
-    ret.agregar_nodo(213.0,1,107.5025) #105
+    # ret.agregar_nodo(213.0,0,100.0)
+    ret.agregar_nodo(213.0,1,107.5025)
     
-    ret.agregar_nodo(34.0,2,106.6626) #106
+    ret.agregar_nodo(34.0,2,106.6626)
     ret.agregar_nodo(46.0,2,112.2212)
     ret.agregar_nodo(58.0,2,116.7813)
     ret.agregar_nodo(70.0,2,120.4193)
-    ret.agregar_nodo(82.0,2,123.1911) #110
+    ret.agregar_nodo(82.0,2,123.1911)
     ret.agregar_nodo(94.0,2,125.1358)
     ret.agregar_nodo(106.0,2,126.2798)
     ret.agregar_nodo(117.5,2,126.6385)
@@ -127,8 +125,8 @@ def caso_L():
     ret.agregar_nodo(165.0,2,120.4193)
     ret.agregar_nodo(177.0,2,116.7813)
     ret.agregar_nodo(189.0,2,112.2212)
-    ret.agregar_nodo(201.0,2,106.6626) #120
-
+    ret.agregar_nodo(201.0,2,106.6626)
+    # ret.agregar_nodo(213.0,2,100.0)
     
     
     """
@@ -139,8 +137,6 @@ def caso_L():
     """
     REVISAR EN PROPS R,R DEBERIA SER R,T
     """
-<<<<<<< HEAD
-<<<<<<< HEAD
     
     # Horizontales
     for k1 in range (nodos-1):
@@ -151,7 +147,7 @@ def caso_L():
             props = [4.2*cm, 4*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
         ret.agregar_barra(Barra(k1, k1+1, *props))      # 1
         
-   
+    
     for k2 in range (nodos,2*nodos-1):
         if k2 == 37 or k2 == 38 or k2 == 71 or k2 == 72:
             props = [13.5*cm, 8.5*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
@@ -160,27 +156,11 @@ def caso_L():
         ret.agregar_barra(Barra(k2, k2+1, *props))      # 1
         
     props = [5.5*cm, 4*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
-=======
-    props = [0.05, 3*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
-    # Horizontales
-    for k1 in range (nodos-1):
-        ret.agregar_barra(Barra(k1, k1+1, *props))      # 1
-    for k2 in range (nodos,2*nodos-1):
-        ret.agregar_barra(Barra(k2, k2+1, *props))      # 1
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-=======
-    props = [0.05, 3*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
-    # Horizontales
-    for k1 in range (nodos-1):
-        ret.agregar_barra(Barra(k1, k1+1, *props))      # 1
-    for k2 in range (nodos,2*nodos-1):
-        ret.agregar_barra(Barra(k2, k2+1, *props))      # 1
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
     # Verticales
     for k4 in range (1, nodos-3):
         ret.agregar_barra(Barra(k4+1, k4+nodos+1, *props))
         
-    props = [5*cm, 0.6*cm, 200*GPa, 7600*kg/m**3, 420*MPa] 
+    props = [5*cm, 0.6*cm, 200*GPa, 7600*kg/m**3, 420*MPa]    
     # Diagonales
     for i in range (18):
         ret.agregar_barra(Barra(i, i+38, *props))
@@ -196,15 +176,7 @@ def caso_L():
         else:
             ret.agregar_barra(Barra((i-1)*2+75, i*2+75, *props))
     # arco2 parte en 74
-<<<<<<< HEAD
-<<<<<<< HEAD
     props = [23.5*cm, 14.5*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
-=======
-    props = [r*2, t*6, 200*GPa, 7600*kg/m**3, 420*MPa]
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-=======
-    props = [r*2, t*6, 200*GPa, 7600*kg/m**3, 420*MPa]
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
     for i in range(17):
         if i ==0:
             # ret.agregar_barra(Barra(i+2, i+74, *props))
@@ -213,17 +185,8 @@ def caso_L():
             ret.agregar_barra(Barra(104, 105, *props))            
         else:
             ret.agregar_barra(Barra((i-1)*2+74, i*2+74, *props))    # # arco3
-<<<<<<< HEAD
-<<<<<<< HEAD
     props = [18.5*cm, 5.5*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
-=======
-    props = [r*2, t*4, 200*GPa, 7600*kg/m**3, 420*MPa]
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-=======
-    props = [r*2, t*4, 200*GPa, 7600*kg/m**3, 420*MPa]
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-        
-    # arco3 
+    # arco3 parte en 107
     for i in range(16):
         if i ==0:
             ret.agregar_barra(Barra(i+39, i+106, *props))
@@ -231,11 +194,11 @@ def caso_L():
             ret.agregar_barra(Barra(120, 71, *props))
         else:
             ret.agregar_barra(Barra(i+106-1, i+106, *props))
-    props = [11.5*cm, 5.5*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
     # Horizontales arco1 y arco3
+    props = [11.5*cm, 5.5*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
     for i in range (15):
         ret.agregar_barra(Barra(i*2+75, i+106, *props))
-    # diagonales tablero de arco
+        # diagonales tablero de arco
     props = [11.5*cm, 5.5*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
     for i in range(8):
         if i ==0:
@@ -249,14 +212,8 @@ def caso_L():
             ret.agregar_barra(Barra(103, 71, *props))
         else:
             ret.agregar_barra(Barra(i*2+89, i+114, *props))
-<<<<<<< HEAD
-<<<<<<< HEAD
             
-    props = [18.2*cm, 7.6*cm, 200*GPa, 7600*kg/m**3, 420*MPa] 
-=======
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-=======
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
+    props = [18.2*cm, 7.6*cm, 200*GPa, 7600*kg/m**3, 420*MPa]        
     # triangulo arco
     for i in range(17):
         if i ==0:
@@ -268,17 +225,10 @@ def caso_L():
         else:
             ret.agregar_barra(Barra(i*2+73, i*2+74, *props))
             ret.agregar_barra(Barra(i+105, i*2+74, *props))
-
-<<<<<<< HEAD
-<<<<<<< HEAD
+            
     props = [21.5*cm, 10*cm, 200*GPa, 7600*kg/m**3, 420*MPa]   
     props1 = [21.5*cm, 11*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
     ret.agregar_barra(Barra(0, 74, *props))          
-=======
-=======
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-    ret.agregar_barra(Barra(0, 74, *props))            
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
     ret.agregar_barra(Barra(1, 74, *props))
     ret.agregar_barra(Barra(37, 74, *props1))
     ret.agregar_barra(Barra(38, 74, *props))
@@ -288,16 +238,7 @@ def caso_L():
     ret.agregar_barra(Barra(72, 105, *props))
     ret.agregar_barra(Barra(73, 105, *props1))
     
-<<<<<<< HEAD
     props = [17.9*cm, 8*cm, 200*GPa, 7600*kg/m**3, 420*MPa]
-=======
-    
-    
-<<<<<<< HEAD
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
-=======
-    
->>>>>>> parent of 4bbed02... AL FIN CTM CUMPLE CONDICIONES
     # Diagonales arco
     for i in range(8):
         if i ==0:
@@ -319,6 +260,7 @@ def caso_L():
         else:
             ret.agregar_barra(Barra(i*2+89, i*2+92, *props))
             ret.agregar_barra(Barra(i+113, i*2+92, *props))
+    
     props = [18*cm, 170*mm, 200*GPa, 7600*kg/m**3, 420*MPa]
     props_m = [17.9*cm, 170*mm, 200*GPa, 7600*kg/m**3, 420*MPa]
     # Cables lado 1
@@ -341,7 +283,7 @@ def caso_L():
             ret.agregar_barra(Barra(i+106, i*2+3+37, *props))
             ret.agregar_barra(Barra(i+106, i*2+4+37, *props_m))
             ret.agregar_barra(Barra(i+106, i*2+5+37, *props))
-    
+            
     
     
     
